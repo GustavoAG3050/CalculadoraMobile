@@ -1,25 +1,25 @@
 
 export function parseExpression(expression: string): number {
   
-  const expr = expression.replace(/\s+/g, "");
+    const expr = expression.replace(/\s+/g, "");
 
   
-  if (!expr || expr === "") {
+   if (!expr || expr === "") {
     return 0;
   }
 
   try {
     
-    const tokens: (string | number)[] = [];
-    let currentNumber = "";
+     const tokens: (string | number)[] = [];
+       let currentNumber = "";
 
     for (let i = 0; i < expr.length; i++) {
-      const char = expr[i];
+         const char = expr[i];
 
-      if (/[\d.]/.test(char)) {
+       if (/[\d.]/.test(char)) {
         
-        currentNumber += char;
-      } else if (["+", "-", "×", "÷"].includes(char)) {
+         currentNumber += char;
+      }    else if (["+", "-", "×", "÷"].includes(char)) {
         
         if (currentNumber) {
           tokens.push(parseFloat(currentNumber));
@@ -45,8 +45,8 @@ export function parseExpression(expression: string): number {
     }
 
     
-    for (let i = 1; i < tokens.length; i += 2) {
-      const operator = tokens[i] as string;
+     for (let i = 1; i < tokens.length; i += 2) {
+          const operator = tokens[i] as string;
 
       if (operator === "×" || operator === "÷") {
         const left = tokens[i - 1] as number;

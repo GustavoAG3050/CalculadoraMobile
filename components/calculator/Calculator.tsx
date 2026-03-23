@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import {
-    Modal,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Modal,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { formatNumber, parseExpression } from "./utils";
 
@@ -141,26 +141,37 @@ export default function Calculator() {
   const buttonLayout: ButtonConfig[][] = [
     [
       { label: "7", onPress: () => handleNumberPress("7") },
+
       { label: "8", onPress: () => handleNumberPress("8") },
+
       { label: "9", onPress: () => handleNumberPress("9") },
-      { label: "÷", onPress: () => handleOperator("÷"), isOperator: true },
+
+
+            { label: "÷", onPress: () => handleOperator("÷"), isOperator: true },
     ],
     [
-      { label: "4", onPress: () => handleNumberPress("4") },
-      { label: "5", onPress: () => handleNumberPress("5") },
-      { label: "6", onPress: () => handleNumberPress("6") },
-      { label: "×", onPress: () => handleOperator("×"), isOperator: true },
+          { label: "4", onPress: () => handleNumberPress("4") },
+
+          { label: "5", onPress: () => handleNumberPress("5") },
+
+          { label: "6", onPress: () => handleNumberPress("6") },
+           { label: "×", onPress: () => handleOperator("×"), isOperator: true },
     ],
     [
       { label: "1", onPress: () => handleNumberPress("1") },
+
       { label: "2", onPress: () => handleNumberPress("2") },
+
       { label: "3", onPress: () => handleNumberPress("3") },
       { label: "−", onPress: () => handleOperator("-"), isOperator: true },
     ],
     [
       { label: "0", onPress: () => handleNumberPress("0") },
+
       { label: ".", onPress: handleDecimal },
+
       { label: "=", onPress: handleEquals, isEquals: true },
+
       { label: "+", onPress: () => handleOperator("+"), isOperator: true },
     ],
     [
@@ -190,10 +201,15 @@ export default function Calculator() {
                   key={`btn-${rowIdx}-${btnIdx}`}
                   style={[
                     styles.button,
+                   
+                   
                     button.isOperator && styles.operatorButton,
-                    button.isEquals && styles.equalsButton,
-                    button.isDelete && styles.deleteButton,
-                    button.colSpan ? { flex: button.colSpan } : undefined,
+                        button.isEquals && styles.equalsButton,
+                        button.isDelete && styles.deleteButton,
+                   
+                   
+                           button.colSpan ? { flex: button.colSpan } : undefined,
+
                   ]}
                   onPress={button.onPress}
                   activeOpacity={0.7}
@@ -216,31 +232,42 @@ export default function Calculator() {
 
       
       <Modal
-        visible={showPopup}
-        transparent={true}
+                visible={showPopup}
+               transparent={true}
         animationType="fade"
         onRequestClose={handleClosePopup}
       >
         <View style={styles.popupOverlay}>
+
           <View style={styles.popupContainer}>
+
             <Text style={styles.popupTitle}>Resultado</Text>
+            
 
             <TextInput
-              style={styles.popupInput}
-              value={popupResult}
-              editable={false}
-              selectTextOnFocus={true}
-            />
+                    style={styles.popupInput}
+                     value={popupResult}
+                      editable={false}
+                      selectTextOnFocus={true}
+                  />
 
             <TouchableOpacity
+
               style={styles.popupCloseButton}
+
               onPress={handleClosePopup}
+
             >
+
               <Text style={styles.popupCloseText}>X</Text>
+
             </TouchableOpacity>
+
           </View>
         </View>
+
       </Modal>
+
     </View>
   );
 }
@@ -248,26 +275,35 @@ export default function Calculator() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: "#f0f0f0",
     justifyContent: "center",
     alignItems: "center",
+
     padding: 16,
   },
 
   calculatorBox: {
     width: 320,
+
     backgroundColor: "#f5f5f5",
+
     borderRadius: 8,
+
     overflow: "hidden",
+
     elevation: 4,
   },
 
   
   displayContainer: {
-    backgroundColor: "#1a1a1a",
+
+    backgroundColor: "#555555",
+
     paddingVertical: 16,
     paddingHorizontal: 12,
     minHeight: 60,
+
     justifyContent: "flex-end",
     alignItems: "flex-end",
   },
@@ -293,13 +329,21 @@ const styles = StyleSheet.create({
 
   button: {
     flex: 1,
+
     backgroundColor: "#e0e0e0",
+
     borderRadius: 4,
+
+
     justifyContent: "center",
+
     alignItems: "center",
+
+
     paddingVertical: 14,
     minHeight: 48,
     borderWidth: 1,
+
     borderColor: "#d0d0d0",
   },
 
@@ -310,7 +354,7 @@ const styles = StyleSheet.create({
   },
 
   operatorButton: {
-    backgroundColor: "#ff9500",
+    backgroundColor: "#d3d3d3",
   },
 
   operatorText: {
@@ -319,11 +363,11 @@ const styles = StyleSheet.create({
   },
 
   equalsButton: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#d3d3d3",
   },
 
   deleteButton: {
-    backgroundColor: "#f44336",
+    backgroundColor: "#d3d3d3",
   },
 
   deleteText: {
@@ -334,9 +378,12 @@ const styles = StyleSheet.create({
 
   
   popupOverlay: {
+
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "center",
+
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        justifyContent: "center",
+
     alignItems: "center",
   },
 
@@ -359,26 +406,39 @@ const styles = StyleSheet.create({
   popupInput: {
     backgroundColor: "#f5f5f5",
     color: "#333",
+
     fontSize: 18,
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderRadius: 4,
     borderWidth: 1,
+
+
     borderColor: "#ddd",
+
     marginBottom: 16,
+
     fontFamily: "monospace",
+
     minHeight: 44,
   },
 
   popupCloseButton: {
+
     backgroundColor: "#ff9500",
+
     borderRadius: 4,
+
     paddingVertical: 10,
+
     alignItems: "center",
   },
 
   popupCloseText: {
+
     color: "#fff",
+
+
     fontSize: 16,
     fontWeight: "600",
   },
